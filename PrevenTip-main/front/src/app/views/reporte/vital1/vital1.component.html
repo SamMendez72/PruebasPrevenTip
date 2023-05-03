@@ -1,8 +1,3 @@
-
-<div>
-    <p></p>
-</div>
-
 <body class="grid-container">
     <nav class="navbar">
       <app-navbar></app-navbar>
@@ -10,6 +5,99 @@
 
     <article class="main">
 
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header text-center">
+                Ritmo cardiaco
+              </div>
+              <div class="card-body text-center">
+                {{userRitmo}} lpm
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header text-center">
+                Frec resp
+              </div>
+              <div class="card-body text-center">
+                {{userFrecuencia}} rpm
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header text-center">
+                Peso
+              </div>
+              <div class="card-body text-center">
+                {{userPeso}} kg
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header text-center">
+                Altura
+              </div>
+              <div class="card-body text-center">
+                {{userAltura}} m
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header text-center">
+                BMI
+              </div>
+              <div class="card-body text-center">
+                {{userBMI}}
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header text-center">
+                Saturación O2
+              </div>
+              <div class="card-body text-center">
+                {{userSaturacion}} %
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header text-center">
+                Temperatura
+              </div>
+              <div class="card-body text-center">
+                {{userTemperatura}} º
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header text-center">
+                Presión san
+              </div>
+              <div class="card-body text-center">
+                {{userPresion}} mmHg
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!--
         <div class="card text-white bg-success mb-3" style="max-width: 10rem;">
             <div class="card-header">Ritmo cardiaco</div>
             <div class="card-body">
@@ -66,7 +154,7 @@
               <p class="card-text">{{userPeso}} mmHg </p>
             </div>
         </div>
-        
+        -->
     </article>
   </body>
 

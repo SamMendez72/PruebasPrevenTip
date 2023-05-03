@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 
 /* ----------------------CATEGORIAS-------------------- */
 
+/*
 app.get('/dashboard', (req, res) => {
     const sql = 'SELECT * FROM vitales';
     connection.query(sql, (err, results) => {
@@ -45,7 +46,9 @@ app.get('/dashboard', (req, res) => {
         }
     });
 });
+*/
 
+/*
 app.get('/dashboard/:idCategoria', (req, res) => {
     const { idCategoria } = req.params;
     const sql = `SELECT * FROM vitales WHERE id_lectura = ${idCategoria}`;
@@ -58,6 +61,7 @@ app.get('/dashboard/:idCategoria', (req, res) => {
         }
     });
 });
+*/
 
 // Crea la ruta que recibe solicitudes de un usuario específico
 // Crea la ruta que recibe solicitudes de un usuario específico
