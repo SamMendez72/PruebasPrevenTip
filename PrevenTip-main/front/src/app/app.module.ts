@@ -17,6 +17,9 @@ import { DataComponent } from './views/data/data.component';
 import { LinechartComponent } from './views/linechart/linechart.component';
 import { GraficoComponent } from './views/grafico/grafico.component';
 import { Vital1Component } from './views/reporte/vital1/vital1.component';
+import { BarChartComponent } from './views/reporte/bar-chart/bar-chart.component';
+import { TablaHistorialComponent } from './views/reporte/tabla-historial/tabla-historial.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { Vital1Component } from './views/reporte/vital1/vital1.component';
     DataComponent,
     LinechartComponent,
     GraficoComponent,
-    Vital1Component
+    Vital1Component,
+    BarChartComponent,
+    TablaHistorialComponent
   ],
   imports: [
     BrowserModule,
