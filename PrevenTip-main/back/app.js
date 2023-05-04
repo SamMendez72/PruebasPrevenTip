@@ -1,12 +1,15 @@
 const express = require('express');
 const mysql = require('mysql');
-const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 3050;
+const bodyParser = require('body-parser'); //Nos sirve para acceder al cuerpo de las solicitudes (i.e. tipo json)
+const PORT = process.env.PORT || 3050; //En este uerto correrá el backend
 const app = express();
 
 app.use(bodyParser.json());
 
 // MYSQL 
+// ----------------------------
+// CONEXIÓN A LA BASE DE DATOS
+// ----------------------------
 const connection = mysql.createConnection({
     host:"3.14.73.75",
     user:"monstruito",
@@ -18,24 +21,28 @@ const connection = mysql.createConnection({
     }
 });
 
+
 // Configurar cabeceras y cors
+// Necesario para tener los permissos requeridos para consumir las apis
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE'); //Permitimos todo tipo de solicitudes
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
 
-//Route
+//-------------------------------------
+// Rutas y peticiones a la base de datos
+//-------------------------------------
+
+// Ruta para saber que el backend está arriba
 app.get('/', (req, res) => {
-    res.send("Welcome")
+    res.send("¡¡El backend está funcionando!!")
 });
 
-/* ----------------------CATEGORIAS-------------------- */
-
-/*
-app.get('/dashboard', (req, res) => {
+// APIS REST
+app.get('/users', (req, res) => {
     const sql = 'SELECT * FROM vitales';
     connection.query(sql, (err, results) => {
         if (err) throw err;
@@ -46,28 +53,11 @@ app.get('/dashboard', (req, res) => {
         }
     });
 });
-*/
 
-/*
-app.get('/dashboard/:idCategoria', (req, res) => {
-    const { idCategoria } = req.params;
-    const sql = `SELECT * FROM vitales WHERE id_lectura = ${idCategoria}`;
-    connection.query(sql, (err, results) => {
-        if (err) throw err;
-        if (results.length > 0) {
-            res.json(results);
-        } else {
-            res.json({message: 'No hay resultados'});
-        }
-    });
-});
-*/
-
-// Crea la ruta que recibe solicitudes de un usuario específico
-// Crea la ruta que recibe solicitudes de un usuario específico
+// API que devuelve el registro de los vitales más reciente de un usuario específico
 app.get('/users/:userId', (req, res) => {
     const userId = req.params.userId;
-    const query = `SELECT * FROM vitales WHERE id_cliente = ${userId}`;
+    const query = `SELECT * FROM vitales WHERE id_cliente = ${userId} LIMIT 1`;
   
     connection.query(query, (error, results, fields) => {
       if (error) {
@@ -86,10 +76,26 @@ app.get('/users/:userId', (req, res) => {
   });
 
 
-
-
-
-
+// API que devuelve todos los registros de vitales de un cleinte específico
+app.get('/users/todo/:userId', (req, res) => {
+    const userId = req.params.userId;
+    const query = `SELECT * FROM vitales WHERE id_cliente = ${userId}`;
+  
+    connection.query(query, (error, results, fields) => {
+      if (error) {
+        console.log(error);
+        res.status(500).send('Error en el servidor');
+        return;
+      }
+  
+      if (results.length === 0) {
+        res.status(404).send('Usuario no encontrado');
+        return;
+      }
+  
+      res.status(200).json(results);
+    });
+  });
 
 
 //CHECK connect 

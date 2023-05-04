@@ -7,6 +7,7 @@ import { LinechartComponent } from './views/linechart/linechart.component';
 import { GraficoComponent } from './views/grafico/grafico.component';
 import { Vital1Component } from './views/reporte/vital1/vital1.component';
 import { BarChartComponent } from './views/reporte/bar-chart/bar-chart.component';
+import { TablaPruebaComponent } from './views/tabla-prueba/tabla-prueba.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'/login', pathMatch:'full'},
@@ -15,7 +16,8 @@ const routes: Routes = [
   //{path: 'dashboard', component: DataComponent}
   //{path: 'dashboard', component: GraficoComponent}
   {path: 'dashboard', component: Vital1Component},
-  {path: 'bar', component: BarChartComponent}
+  {path: 'bar', component: BarChartComponent},
+  {path: 'tabla', component: TablaPruebaComponent}
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'; 
-import { Medicion } from 'src/app/interfaces/medicion';
+import { UserService } from '../../../services/data-client.service';
 
 @Component({
   selector: 'app-tabla-historial',
@@ -7,14 +7,14 @@ import { Medicion } from 'src/app/interfaces/medicion';
   styleUrls: ['./tabla-historial.component.css']
 })
 export class TablaHistorialComponent implements OnInit{
-  listProducts: Medicion[] = [
-    {Ritmo: 1, Frec: 2, Peso: 3, Altura: 4, BMI: 6, Saturacion: 7, Temp:8, Presion:9},
-    {Ritmo: 23, Frec: 12, Peso: 13, Altura: 14, BMI: 16, Saturacion: 17, Temp:18, Presion:19},
-  ]
-  
+  datos: any = [];
+  idCategoria = 7;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.userService.getUserFiles(this.idCategoria).subscribe(res => {
+      this.datos = res;
+    });
   }
 }

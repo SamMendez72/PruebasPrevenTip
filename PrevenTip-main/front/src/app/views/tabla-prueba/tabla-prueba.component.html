@@ -1,0 +1,29 @@
+<!-- Creación de la tabla  -->
+<div class="col-9">
+    <table class="table">
+        <thead class="thead-dark text-center">
+            <tr>
+                <th scope="col">RITMO</th>
+                <th scope="col">FRECUENCIA</th>
+                <th scope="col">PESO</th>
+                <th scope="col">ALTURA</th>
+                <th scope="col">BMI</th>
+                <th scope="col">SATURACION</th>
+                <th scope="col">TEMPERATURA</th>
+                <th scope="col">PRESION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let d of datos">
+                <td>{{d.ritmo_cardiaco}}</td>
+                <td>{{d.frecuencia_respiratoria}}</td>
+                <td>{{d.peso}}</td>
+                <td>{{d.altura}}</td>
+                <td>{{d.indice_masa_corporal}}</td>
+                <td>{{d.saturacion_oxigeno}}</td>
+                <td>{{d.temperatura}}</td>
+                <td>{{d.presion_sanguinea_sistolica}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

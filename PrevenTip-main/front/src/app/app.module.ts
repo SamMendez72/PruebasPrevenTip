@@ -19,6 +19,7 @@ import { GraficoComponent } from './views/grafico/grafico.component';
 import { Vital1Component } from './views/reporte/vital1/vital1.component';
 import { BarChartComponent } from './views/reporte/bar-chart/bar-chart.component';
 import { TablaHistorialComponent } from './views/reporte/tabla-historial/tabla-historial.component';
+import { TablaPruebaComponent } from './views/tabla-prueba/tabla-prueba.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { TablaHistorialComponent } from './views/reporte/tabla-historial/tabla-h
     GraficoComponent,
     Vital1Component,
     BarChartComponent,
-    TablaHistorialComponent
+    TablaHistorialComponent,
+    TablaPruebaComponent
   ],
   imports: [
     BrowserModule,

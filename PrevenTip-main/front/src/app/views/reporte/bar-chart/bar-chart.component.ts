@@ -13,7 +13,7 @@ import { UserService } from './../../../services/data-client.service';
 
 export class BarChartComponent implements OnInit {
   data: any[];
-  Id_cliente = 6; // Cambia esto por el ID del usuario que deseas mostrar
+  Id_cliente = 7; // Cambia esto por el ID del usuario que deseas mostrar
   userRitmo: number;
   userFrecuencia: number;
   userPeso: number;
