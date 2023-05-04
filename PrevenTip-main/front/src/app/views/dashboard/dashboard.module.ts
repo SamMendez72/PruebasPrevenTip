@@ -6,6 +6,7 @@ import { AngularMaterialsModule } from 'src/app/angular-materials/angular-materi
 import { OrderComponent } from './order/order.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -19,7 +20,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     RouterModule,
     AngularMaterialsModule,
     SharedModule,
-    NgxChartsModule
+    NgxChartsModule,
+    NgChartsModule
   ]
 })
 export class DashboardModule { }

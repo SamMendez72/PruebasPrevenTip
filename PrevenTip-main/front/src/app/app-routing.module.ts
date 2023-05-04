@@ -12,9 +12,9 @@ import { TablaPruebaComponent } from './views/tabla-prueba/tabla-prueba.componen
 const routes: Routes = [
   {path: '', redirectTo:'/login', pathMatch:'full'},
   {path: 'login', component: AuthComponent},
-  //{path: 'dashboard', component: MainComponent}
+  {path: 'dashboard2', component: MainComponent},
   //{path: 'dashboard', component: DataComponent}
-  //{path: 'dashboard', component: GraficoComponent}
+  //{path: 'dashboard2', component: GraficoComponent},
   {path: 'dashboard', component: Vital1Component},
   {path: 'bar', component: BarChartComponent},
   {path: 'tabla', component: TablaPruebaComponent}

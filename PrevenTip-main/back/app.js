@@ -57,7 +57,7 @@ app.get('/users', (req, res) => {
 // API que devuelve el registro de los vitales más reciente de un usuario específico
 app.get('/users/:userId', (req, res) => {
     const userId = req.params.userId;
-    const query = `SELECT * FROM vitales WHERE id_cliente = ${userId} LIMIT 1`;
+    const query = `SELECT ritmo_cardiaco, frecuencia_respiratoria, peso, indice_masa_corporal, saturacion_oxigeno, temperatura, presion_sanguinea_sistolica, altura FROM vitales WHERE id_cliente = ${userId} LIMIT 1`;
   
     connection.query(query, (error, results, fields) => {
       if (error) {
