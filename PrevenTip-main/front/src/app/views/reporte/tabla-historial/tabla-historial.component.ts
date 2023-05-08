@@ -8,7 +8,7 @@ import { UserService } from '../../../services/data-client.service';
 })
 export class TablaHistorialComponent implements OnInit{
   datos: any = [];
-  idCategoria = 7;
+  idCategoria = 1;
 
   constructor(private userService: UserService) { }
 

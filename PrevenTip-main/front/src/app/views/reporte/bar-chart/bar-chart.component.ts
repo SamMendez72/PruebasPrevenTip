@@ -53,8 +53,8 @@ export class BarChartComponent {
   public barChartData: ChartData<'bar'> = {
     labels: [],
     datasets: [
-      { data: [], label: 'Tú' },
-      { data: [ 28, 48, 40, 19, 86, 27, 90, 90 ], label: 'Población'}
+      { data: [], label: 'Tú', backgroundColor: '#3CF17E' },
+      { data: [ 72.9, 14.6, 63.9, 22.7, 95.1, 35.45, 126.1, 169.9], label: 'Población'}
     ],
   };
 
@@ -64,11 +64,12 @@ export class BarChartComponent {
     this.loadData();
   }
 
-  id_cliente = 7
+  id_cliente = 1
 
   private loadData() {
     this.userService.getUser(this.id_cliente).subscribe(data => {
       this.barChartData.datasets[0].data = data;
+      console.log(data);
       this.chart?.update();
     });
   }
@@ -81,7 +82,6 @@ export class BarChartComponent {
   public chartHovered({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
     console.log(event, active);
   }
-
 }
 
 

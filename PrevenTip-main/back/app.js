@@ -57,9 +57,10 @@ app.get('/users', (req, res) => {
 // API que devuelve el registro de los vitales más reciente de un usuario específico
 app.get('/users/:userId', (req, res) => {
     const userId = req.params.userId;
-    const query = `SELECT ritmo_cardiaco, frecuencia_respiratoria, peso, indice_masa_corporal, saturacion_oxigeno, temperatura, presion_sanguinea_sistolica, altura FROM vitales WHERE id_cliente = ${userId} LIMIT 1`;
+    const query = `SELECT ritmo_cardiaco, frecuencia_respiratoria, peso, indice_masa_corporal, saturacion_oxigeno, temperatura, presion_sanguinea_sistolica, altura FROM vitales WHERE id_cliente = ${userId} ORDER BY date_time DESC LIMIT 1`;
   
     connection.query(query, (error, results, fields) => {
+      //console.log(results);
       if (error) {
         console.log(error);
         res.status(500).send('Error en el servidor');
@@ -79,7 +80,7 @@ app.get('/users/:userId', (req, res) => {
 // API que devuelve todos los registros de vitales de un cleinte específico
 app.get('/users/todo/:userId', (req, res) => {
     const userId = req.params.userId;
-    const query = `SELECT * FROM vitales WHERE id_cliente = ${userId}`;
+    const query = `SELECT date_time, ritmo_cardiaco, frecuencia_respiratoria, peso, indice_masa_corporal, saturacion_oxigeno, temperatura, presion_sanguinea_sistolica, altura FROM vitales WHERE id_cliente = ${userId} ORDER BY date_time DESC`;
   
     connection.query(query, (error, results, fields) => {
       if (error) {

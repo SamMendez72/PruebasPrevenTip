@@ -4,6 +4,7 @@
     <table class="table table-hover text-center">
         <thead>
           <tr>
+            <th scope="col">Fecha</th>
             <th scope="col">Ritmo cardiaco</th>
             <th scope="col">Frecuencia respiratoria</th>
             <th scope="col">Peso</th>
@@ -16,6 +17,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of datos"  class="table-active">
+            <th>{{item.date_time}}</th>
             <th>{{item.ritmo_cardiaco}}</th>
             <td>{{item.frecuencia_respiratoria}}</td>
             <td>{{item.peso}}</td>
@@ -27,9 +29,6 @@
           </tr>
         </tbody>
       </table>
-
-
-
 </div>
 
 
